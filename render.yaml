@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: django-qr-app
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn QR.wsgi
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: QR.settings
+      - key: SECRET_KEY
+        value: c*ao^@9b7l3t-4#meug1vb6l6ct)aqabsjp8@87y^ktj%xcix
