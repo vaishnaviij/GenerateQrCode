@@ -1,11 +1,13 @@
 services:
   - type: web
-    name: django-qr-app
+    name: qr-web
     env: python
-    buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn QR.wsgi
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn QR.wsgi:application"
     envVars:
-      - key: DJANGO_SETTINGS_MODULE
-        value: QR.settings
-      - key: SECRET_KEY
-        value: c*ao^@9b7l3t-4#meug1vb6l6ct)aqabsjp8@87y^ktj%xcix
+      - key: DJANGO_SECRET_KEY
+        value: !9%^63-0p18y#j%%yv1ahxre+6^w7&a_ickf#^egaly5ib2n6u
+      - key: DEBUG
+        value: False
+      - key: ALLOWED_HOSTS
+        value: your-domain.onrender.com
